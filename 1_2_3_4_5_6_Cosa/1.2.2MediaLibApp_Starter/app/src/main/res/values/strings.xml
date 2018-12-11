@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MediaLib</string>
+    <string name="every_other_string">org.pltw.examples.every_other_string</string>
+</resources>
