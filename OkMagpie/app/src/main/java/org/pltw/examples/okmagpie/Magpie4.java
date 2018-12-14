@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class Magpie4
 {
-    private ArrayList<Acquaintance> aquaintances = new ArrayList<>();
 
     /**
      * Get a default greeting   
@@ -40,6 +39,9 @@ public class Magpie4
             response = "Say something, please";
             return response;
         }
+
+        if(checkSwear(statement)) return "Please don't swear at me.";
+
         if (findKeyword(statement, "no", 0) >= 0) { // Default
             response = "Why so negative?";
         }
@@ -185,19 +187,7 @@ public class Magpie4
        
        return result;
     }
-    
 
-    /* Handling Acquaintances */
-    private boolean aqMentioned(String statement) {
-        boolean result = false;
-        for(Acquaintance a : aquaintances) {
-            if(findKeyword(statement, a.getName(), 0) >= 0) {
-                //If the acquaintance's name is within the statement
-                result = true;
-            }
-        }
-        return result;
-    }
     
     /**
      * Search for one word in phrase.  The search is not case sensitive.
@@ -297,6 +287,39 @@ public class Magpie4
         String greeting = greetings[rInt]; // Sets the greeting
         
         return greeting;
+    }
+
+    private boolean checkSwear(String statement) {
+        boolean result = false;
+
+        // Remove leetspeak (replacing letters for numbers or symbols)
+        statement = statement.replaceAll("1", "i");
+        statement = statement.replaceAll("!", "i");
+        statement = statement.replaceAll("3", "e");
+        statement = statement.replaceAll("4", "a");
+        statement = statement.replaceAll("@", "a");
+        statement = statement.replaceAll("5", "s");
+        statement = statement.replaceAll("7", "t");
+        statement = statement.replaceAll("0", "o");
+        statement = statement.replaceAll("9", "g");
+
+        String[] badWords = {
+                // Really basic, essentially a prototype
+                "fuck",
+                "shit",
+                "bitch",
+                "whore",
+                "slut",
+                "dick",
+                "slut"
+        };
+
+        for(String w : badWords) {
+            if(findKeyword(statement, w) >= 0) {
+                result = true;
+            }
+        }
+        return result;
     }
 
 }
