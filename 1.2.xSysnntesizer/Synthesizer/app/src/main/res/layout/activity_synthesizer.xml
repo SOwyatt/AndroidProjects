@@ -7,21 +7,26 @@
     tools:context=".SynthesizerActivity">
 
     <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
+        android:id="@+id/button1"
+        android:layout_width="121dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginTop="60dp"
+        android:onClick="onButton1Click"
         android:text="@string/btn_1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+        android:id="@+id/button2"
+        android:layout_width="137dp"
         android:layout_height="49dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="24dp"
+        android:onClick="onButton2Click"
         android:text="@string/btn_2"
-        app:layout_constraintTop_toBottomOf="@+id/btn1"
-        tools:layout_editor_absoluteX="124dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn1" />
 
 </android.support.constraint.ConstraintLayout>
