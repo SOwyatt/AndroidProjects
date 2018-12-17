@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class SynthesizerActivity extends AppCompatActivity {
     private static final String TAG = SynthesizerActivity.class.getName();
+    private static final int WHOLE_NOTE = 1000;
     private Button button1;
     private Button button2;
     private MediaPlayer mpA;
@@ -54,6 +55,23 @@ public class SynthesizerActivity extends AppCompatActivity {
         mphG = MediaPlayer.create(this, R.raw.scalehighg);
     }
 
+    private void delayPlaying(int delay) {
+        try {
+            Thread.sleep(delay);
+        }
+        catch (InterruptedException e) {
+            Log.e("Synthesizer Activity", "Audio playback interrupted");
+        }
+    }
+
+    /**
+     * Plays a note, restarting it and playing it
+     * */
+    private void playNote(MediaPlayer m) {
+        m.seekTo(0);
+        m.start();
+    }
+
     public void onButton1Click(View v) {
         mpE.seekTo(0);
         Log.i(TAG, "E Button Clicked");
@@ -64,5 +82,23 @@ public class SynthesizerActivity extends AppCompatActivity {
         mpF.seekTo(0);
         Log.i(TAG, "F button clicked");
         mpF.start();
+    }
+
+    public void challenge1(View v) {
+        playNote(mpE);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpFs);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpG);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpA);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpB);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpCs);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpD);
+        delayPlaying(WHOLE_NOTE / 2);
+        playNote(mpE);
     }
 }
