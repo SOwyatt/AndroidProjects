@@ -1,6 +1,7 @@
 package com.example.travisbergeron20.synthesizer;
 
 import android.media.MediaPlayer;
+//import com.example.travisbergeron20.synthesizer.UtilMediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.gsm.GsmCellLocation;
@@ -11,48 +12,51 @@ import android.widget.Button;
 public class SynthesizerActivity extends AppCompatActivity {
     private static final String TAG = SynthesizerActivity.class.getName();
     private static final int WHOLE_NOTE = 1000;
+
     private Button button1;
     private Button button2;
-    private MediaPlayer mpA;
-    private MediaPlayer mpB;
-    private MediaPlayer mpBb;
-    private MediaPlayer mpC;
-    private MediaPlayer mpCs;
-    private MediaPlayer mpD;
-    private MediaPlayer mpDs;
-    private MediaPlayer mpE;
-    private MediaPlayer mpF;
-    private MediaPlayer mpFs;
-    private MediaPlayer mpG;
-    private MediaPlayer mpGs;
-    private MediaPlayer mphE;
-    private MediaPlayer mphF;
-    private MediaPlayer mphFs;
-    private MediaPlayer mphG;
+    private UtilMediaPlayer mpA;
+    private UtilMediaPlayer mpB;
+    private UtilMediaPlayer mpBb;
+    private UtilMediaPlayer mpC;
+    private UtilMediaPlayer mpCs;
+    private UtilMediaPlayer mpD;
+    private UtilMediaPlayer mpDs;
+    private UtilMediaPlayer mpE;
+    private UtilMediaPlayer mpF;
+    private UtilMediaPlayer mpFs;
+    private UtilMediaPlayer mpG;
+    private UtilMediaPlayer mpGs;
+    private UtilMediaPlayer mphE;
+    private UtilMediaPlayer mphF;
+    private UtilMediaPlayer mphFs;
+    private UtilMediaPlayer mphG;
+
+    private UtilMediaPlayer[] allNotes = new UtilMediaPlayer[15];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synthesizer);
 
-        button1 = (Button)findViewById(R.id.btnE);
-        button2 = (Button)findViewById(R.id.btnF);
-        mpA = MediaPlayer.create(this, R.raw.scalea);
-        mpB = MediaPlayer.create(this, R.raw.scaleb);
-        mpBb = MediaPlayer.create(this, R.raw.scalebb);
-        mpC = MediaPlayer.create(this, R.raw.scalec);
-        mpCs = MediaPlayer.create(this, R.raw.scalecs);
-        mpD = MediaPlayer.create(this, R.raw.scaled);
-        mpDs = MediaPlayer.create(this, R.raw.scaleds);
-        mpE = MediaPlayer.create(this, R.raw.scalee);
-        mpF = MediaPlayer.create(this, R.raw.scalef);
-        mpFs = MediaPlayer.create(this, R.raw.scalefs);
-        mpG = MediaPlayer.create(this, R.raw.scaleg);
-        mpGs = MediaPlayer.create(this, R.raw.scalegs);
-        mphE = MediaPlayer.create(this, R.raw.scalehighe);
-        mphF = MediaPlayer.create(this, R.raw.scalehighf);
-        mphFs = MediaPlayer.create(this, R.raw.scalehighfs);
-        mphG = MediaPlayer.create(this, R.raw.scalehighg);
+        button1 = findViewById(R.id.btnE);
+        button2 = findViewById(R.id.btnF);
+        mpA = new UtilMediaPlayer(this, R.raw.scalea);
+        mpB = new UtilMediaPlayer(this, R.raw.scaleb);
+        mpBb = new UtilMediaPlayer(this, R.raw.scalebb);
+        mpC = new UtilMediaPlayer(this, R.raw.scalec);
+        mpCs = new UtilMediaPlayer(this, R.raw.scalecs);
+        mpD = new UtilMediaPlayer(this, R.raw.scaled);
+        mpDs = new UtilMediaPlayer(this, R.raw.scaleds);
+        mpE = new UtilMediaPlayer(this, R.raw.scalee);
+        mpF = new UtilMediaPlayer(this, R.raw.scalef);
+        mpFs = new UtilMediaPlayer(this, R.raw.scalefs);
+        mpG = new UtilMediaPlayer(this, R.raw.scaleg);
+        mpGs = new UtilMediaPlayer(this, R.raw.scalegs);
+        mphE = new UtilMediaPlayer(this, R.raw.scalehighe);
+        mphF = new UtilMediaPlayer(this, R.raw.scalehighf);
+        mphFs = new UtilMediaPlayer(this, R.raw.scalehighfs);
+        mphG = new UtilMediaPlayer(this, R.raw.scalehighg);
     }
 
     private void delayPlaying(int delay) {
@@ -62,14 +66,6 @@ public class SynthesizerActivity extends AppCompatActivity {
         catch (InterruptedException e) {
             Log.e("Synthesizer Activity", "Audio playback interrupted");
         }
-    }
-
-    /**
-     * Plays a note, restarting it and playing it
-     * */
-    private void playNote(MediaPlayer m) {
-        m.seekTo(0);
-        m.start();
     }
 
     public void onButton1Click(View v) {
@@ -85,20 +81,20 @@ public class SynthesizerActivity extends AppCompatActivity {
     }
 
     public void challenge1(View v) {
-        playNote(mpE);
+        mpE.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpFs);
+        mpFs.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpG);
+        mpG.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpA);
+        mpA.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpB);
+        mpB.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpCs);
+        mpCs.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpD);
+        mpD.playNote();
         delayPlaying(WHOLE_NOTE / 2);
-        playNote(mpE);
+        mpE.playNote();
     }
 }
