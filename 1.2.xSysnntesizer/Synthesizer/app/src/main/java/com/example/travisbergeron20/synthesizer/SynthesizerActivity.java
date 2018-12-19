@@ -13,8 +13,7 @@ public class SynthesizerActivity extends AppCompatActivity {
     private static final String TAG = SynthesizerActivity.class.getName();
     private static final int WHOLE_NOTE = 1000;
 
-    private Button button1;
-    private Button button2;
+    private Button challenge1_btn;
     private UtilMediaPlayer mpA;
     private UtilMediaPlayer mpB;
     private UtilMediaPlayer mpBb;
@@ -39,8 +38,7 @@ public class SynthesizerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synthesizer);
 
-        button1 = findViewById(R.id.btnE);
-        button2 = findViewById(R.id.btnF);
+        challenge1_btn = findViewById(R.id.btn_challenge1);
         mpA = new UtilMediaPlayer(this, R.raw.scalea);
         mpB = new UtilMediaPlayer(this, R.raw.scaleb);
         mpBb = new UtilMediaPlayer(this, R.raw.scalebb);
@@ -59,15 +57,6 @@ public class SynthesizerActivity extends AppCompatActivity {
         mphG = new UtilMediaPlayer(this, R.raw.scalehighg);
     }
 
-    private void delayPlaying(int delay) {
-        try {
-            Thread.sleep(delay);
-        }
-        catch (InterruptedException e) {
-            Log.e("Synthesizer Activity", "Audio playback interrupted");
-        }
-    }
-
     public void onButton1Click(View v) {
         mpE.seekTo(0);
         Log.i(TAG, "E Button Clicked");
@@ -81,20 +70,14 @@ public class SynthesizerActivity extends AppCompatActivity {
     }
 
     public void challenge1(View v) {
-        mpE.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpFs.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpG.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpA.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpB.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpCs.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpD.playNote();
-        delayPlaying(WHOLE_NOTE / 2);
-        mpE.playNote();
+        Log.i(TAG, "Challenge 1 Clicked");
+        mpE.playNote(WHOLE_NOTE/2);
+        mpFs.playNote(WHOLE_NOTE/2);
+        mpG.playNote(WHOLE_NOTE/2);
+        mpA.playNote(WHOLE_NOTE/2);
+        mpB.playNote(WHOLE_NOTE/2);
+        mpCs.playNote(WHOLE_NOTE/2);
+        mpD.playNote(WHOLE_NOTE/2);
+        mpE.playNote(WHOLE_NOTE/2);
     }
 }

@@ -1,5 +1,7 @@
 <resources>
+    <string name="btn_e">e</string>
+    <string name="btn_f">f</string>
     <string name="app_name">Synthesizer</string>
-    <string name="btn_1">E</string>
+    <string name="btn_1">Challenge 1</string>
     <string name="btn_2">F</string>
 </resources>
