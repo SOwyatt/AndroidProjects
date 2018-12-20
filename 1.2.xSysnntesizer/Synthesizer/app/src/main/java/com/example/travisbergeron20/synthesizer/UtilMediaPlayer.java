@@ -16,7 +16,7 @@ public class UtilMediaPlayer extends MediaPlayer {
         delayPlaying(delay);
     }
 
-    private void delayPlaying(int delay) {
+    public static void delayPlaying(int delay) {
         try {
             Thread.sleep(delay);
         }

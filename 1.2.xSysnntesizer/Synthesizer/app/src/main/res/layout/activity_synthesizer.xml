@@ -21,19 +21,31 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="54dp"
-        android:onClick="onButton1Click"
-        android:text="@string/btn_e"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="132dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_challenge_2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_challenge1" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="210dp" />
+    <NumberPicker
+        android:layout_width="92dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </NumberPicker>
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="92dp"
+        android:layout_height="101dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </NumberPicker>
 
 </android.support.constraint.ConstraintLayout>
