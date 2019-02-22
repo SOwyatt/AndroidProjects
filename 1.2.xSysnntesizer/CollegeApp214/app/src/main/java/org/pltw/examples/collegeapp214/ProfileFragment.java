@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 public class ProfileFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater l, ViewGroup v, Bundle b) {
         super.onCreateView(l, v, b);
-        //View rootView = l.inflate(R.layout.   , v, false);
+        View rootView = l.inflate(R.layout.fragment_profile, v, false);
         return rootView;
     }
 }
