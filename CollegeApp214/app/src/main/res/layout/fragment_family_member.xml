@@ -9,4 +9,17 @@
         android:layout_height="wrap_content"
         android:text="@string/family_member_fragment_content" />
 
+    <TextView
+    android:id="@+id/family_member_firstname"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Test"
+        />
+
+    <TextView
+        android:id="@+id/family_member_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test" />
+
 </LinearLayout>

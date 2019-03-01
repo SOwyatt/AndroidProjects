@@ -22,6 +22,17 @@ public class FamilyMemberFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater l, ViewGroup v, Bundle b) {
         super.onCreateView(l, v, b);
         View rootView = l.inflate(R.layout.fragment_family_member, v, false);
+        
+        mFamilyMemberModel = new FamilyMember();
+        
+        //Connecting TextViews and EditTexts to xml
+        
+        mFirstNameTextView = rootView.findViewById(R.id.family_member_firstname);
+        mLastNameEditText = rootView.findViewById(R.id.family_member_lastname);
+        
+        mFirstNameTextView.setText(mFamilyMemberModel.getFirstname());
+        mLastNameEditText.setText(mFamilyMemberModel.getLastname());
+        
         return rootView;
     }
 }

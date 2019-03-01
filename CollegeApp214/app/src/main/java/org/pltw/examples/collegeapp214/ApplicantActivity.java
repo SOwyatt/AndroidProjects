@@ -86,6 +86,7 @@ public class ApplicantActivity extends AppCompatActivity
         if (id == R.id.family_member) {
             // Handle the family member action
             contentFragment = new FamilyMemberFragment();
+            
         }
 
         if (id == R.id.profile) {

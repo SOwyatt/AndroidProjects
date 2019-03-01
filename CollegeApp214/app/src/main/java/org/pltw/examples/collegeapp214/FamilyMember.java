@@ -8,6 +8,11 @@ public class FamilyMember {
         this.firstname = first;
         this.lastname = last;
     }
+    
+    public FamilyMember() {
+        this.firstname = "Ada";
+        this.lastname = "Lovelace";
+    }
 
     // GETTERS
 
