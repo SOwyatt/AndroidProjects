@@ -1,3 +1,5 @@
+//TODO Step 14 is not completed
+
 package org.pltw.examples.collegeapp214;
 
 import android.os.Bundle;
@@ -22,6 +24,9 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
     private EditText mLastNameEditText;
     private Button mSubmitButton;
     private DatePicker mDOBPicker;
+    
+    private static final int WITHIN_8_YEARS = 2011;
+    private static final String TAG = "ProfileFragment";
     
     private Profile mProfileModel;
     
