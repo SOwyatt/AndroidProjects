@@ -1,6 +1,6 @@
 package org.pltw.examples.collegeapp214;
 
-public class FamilyMember {
+public abstract class FamilyMember {
     String firstname;
     String lastname;
 

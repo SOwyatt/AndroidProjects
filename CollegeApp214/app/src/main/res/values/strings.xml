@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="family_member_fragment_content">Family Member Content</string>
+    <string name="guardian_fragment_content">Guardian Content</string>
     <string name="profile_fragment_title">Profile Content</string>
+    <string name="submit">Submit</string>
 </resources>

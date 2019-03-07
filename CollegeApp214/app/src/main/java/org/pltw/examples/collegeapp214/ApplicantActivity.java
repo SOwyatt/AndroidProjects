@@ -1,3 +1,5 @@
+//TODO Move onto step 25
+
 package org.pltw.examples.collegeapp214;
 
 import android.os.Bundle;
@@ -83,9 +85,9 @@ public class ApplicantActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment contentFragment = null;
 
-        if (id == R.id.family_member) {
+        if (id == R.id.guardian) {
             // Handle the family member action
-            contentFragment = new FamilyMemberFragment();
+            contentFragment = new GuardianFragment();
             
         }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -13,12 +14,12 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent" >
         <TextView
-            android:id="@+id/profile_firstname"
+            android:id="@+id/guardian_firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""/>
+            android:text="" />
         <EditText
-            android:id="@+id/profile_firstname_edittext"
+            android:id="@+id/guardian_firstname_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -27,27 +28,33 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent" >
         <TextView
-            android:id="@+id/profile_lastname"
+            android:id="@+id/guardian_lastname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""/>
+            android:text="" />
         <EditText
-            android:id="@+id/profile_lastname_edittext"
+            android:id="@+id/guardian_lastname_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent" >
+        <TextView
+            android:id="@+id/guardian_occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/guardian_occupation_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/profile_submit_button"
+        android:id="@+id/guardian_submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/submit"/>
-
-    <DatePicker
-        android:id="@+id/profile_birthdate_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:calendarViewShown="false" >
-    </DatePicker>
+        android:text="@string/submit" />
 
 </LinearLayout>
