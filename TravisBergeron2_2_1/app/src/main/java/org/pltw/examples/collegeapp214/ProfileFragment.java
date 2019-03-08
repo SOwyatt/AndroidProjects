@@ -3,6 +3,7 @@
 package org.pltw.examples.collegeapp214;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
     private Button mSubmitButton;
     private DatePicker mDOBPicker;
     
-    private static final int WITHIN_8_YEARS = 2011;
+    // private static final int WITHIN_8_YEARS = 2011;
     private static final String TAG = "ProfileFragment";
     
     private Profile mProfileModel;
@@ -51,6 +52,19 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
                 //Set textViews when submit button is clicked
                 mFirstNameTextView.setText(mFirstNameEditText.getText().toString());
                 mLastNameTextView.setText(mLastNameEditText.getText().toString());
+                
+                // Date picker because DatePicker's onClick fails to work
+                try {
+                    if(AgeException.within8Years(mDOBPicker.getYear())) {
+                        Date date = new GregorianCalendar(mDOBPicker.getYear(), mDOBPicker.getMonth(), mDOBPicker.getDayOfMonth()).getTime();
+                        mProfileModel.setDOB(date);
+                    }
+                    else throw new AgeException("Who are you, Michael Kearney?");
+                }
+                catch (AgeException e) {
+                    Log.i(TAG, AgeException.joinMessageAndYear(e.getMessage(), mDOBPicker.getYear()));
+                    System.out.println("Log sent!");
+                }
             }
         });
         
@@ -58,14 +72,6 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(mProfileModel.getDOB());
         mDOBPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), null);
-        
-        mDOBPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Date date = new GregorianCalendar(mDOBPicker.getYear(), mDOBPicker.getMonth(), mDOBPicker.getDayOfMonth()).getTime();
-                mProfileModel.setDOB(date);
-            }
-        });
         
         mFirstNameTextView.setText(mProfileModel.getFirstName());
         mLastNameTextView.setText(mProfileModel.getLastName());
