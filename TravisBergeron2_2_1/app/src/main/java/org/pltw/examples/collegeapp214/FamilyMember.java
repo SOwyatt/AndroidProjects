@@ -12,6 +12,7 @@ public abstract class FamilyMember {
     public FamilyMember() {
         this.firstname = "Ada";
         this.lastname = "Lovelace";
+        this.lastname = "Lovelace";
     }
 
     // GETTERS
