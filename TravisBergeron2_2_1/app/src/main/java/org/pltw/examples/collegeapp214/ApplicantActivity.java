@@ -16,9 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 
 public class ApplicantActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    
+    private static final String BE_APP_ID = "DB092BE1-D308-968E-FFAA-C74D8DFA2F00";
+    private static final String BE_ANDROID_API_KEY = "E556FA7F-C15F-AF98-FF66-199787F2D900";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,8 @@ public class ApplicantActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        
+        Backendless.initApp(this, BE_APP_ID, BE_ANDROID_API_KEY);
     }
 
     @Override
@@ -106,5 +113,11 @@ public class ApplicantActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    
+    public static void temp() {
+        BackendlessUser user = new BackendlessUser();
+        user.setEmail("travisbergeron2011@gmail.com");
+        
     }
 }
